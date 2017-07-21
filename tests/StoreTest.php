@@ -8,7 +8,7 @@
     require_once "src/Store.php";
     // require_once "src/Brand.php";
 
-    $server = 'mysql:host=localhost:8889;dbstore_name=shoe_store_test';
+    $server = 'mysql:host=localhost:8889;dbname=shoe_store_test';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -43,16 +43,16 @@
             $this->assertEquals($new_store_name, $result);
         }
 
-        // function testSave()
-        // {
-        //     $store_name = "PayLess";
-        //     $test_store = new Store($store_name);
-        //
-        //     $executed = $test_store->save();
-        //
-        //     $this->assertTrue($executed, "Store not successfully saved to database");
-        // }
-        //
+        function testSave()
+        {
+            $store_name = "PayLess";
+            $test_store = new Store($store_name);
+
+            $executed = $test_store->save();
+
+            $this->assertTrue($executed, "Store not successfully saved to database");
+        }
+
         // function testGetID()
         // {
         //     $store_name = "Famous Brands";
