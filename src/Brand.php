@@ -22,19 +22,19 @@
         {
             $this->brand_name = (string) $new_brand_name;
         }
-    
-    //     function save()
-    //     {
-    //         $executed = $GLOBALS['DB']->exec("INSERT INTO brands (brand_name) VALUES ('{$this->getBrandName()}')");
-    //         if ($executed) {
-    //             $this->id = $GLOBALS['DB']->lastInsertId();
-    //             return true;
-    //         } else {
-    //             return false;
-    //         }
-    //     }
-    //
-    //     function getId()
+
+        function save()
+        {
+            $executed = $GLOBALS['DB']->exec("INSERT INTO brands (brand_name) VALUES ('{$this->getBrandName()}')");
+            if ($executed) {
+                $this->id = $GLOBALS['DB']->lastInsertID();
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+    //     function getID()
     //     {
     //         return $this->id;
     //     }
@@ -95,7 +95,7 @@
     //
     //     function addStore($store)
     //     {
-    //         $executed = $GLOBALS['DB']->exec("INSERT INTO stores_brands (brand_id, store_id) VALUES ({$this->getId()}, {$store->getId()});");
+    //         $executed = $GLOBALS['DB']->exec("INSERT INTO stores_brands (brand_id, store_id) VALUES ({$this->getID()}, {$store->getID()});");
     //         if ($executed) {
     //             return true;
     //         } else {
@@ -105,7 +105,7 @@
     //
     //     function getStores()
     //     {
-    //         $returned_stores = $GLOBALS['DB']->query("SELECT stores.* FROM brands JOIN stores_brands ON (stores_brands.brand_id = brands.id) JOIN stores ON (stores.id = stores_brands.store_id) WHERE brands.id = {$this->getId()};");
+    //         $returned_stores = $GLOBALS['DB']->query("SELECT stores.* FROM brands JOIN stores_brands ON (stores_brands.brand_id = brands.id) JOIN stores ON (stores.id = stores_brands.store_id) WHERE brands.id = {$this->getID()};");
     //         $stores = array();
     //         foreach($returned_stores as $store) {
     //             $store_name = $store['store_name'];
