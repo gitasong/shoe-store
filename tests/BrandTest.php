@@ -17,11 +17,11 @@
     class BrandTest extends PHPUnit_Framework_TestCase
     {
 
-        // protected function tearDown()
-        // {
-        //     Brand::deleteAll();
-        //     // Store::deleteAll();
-        // }
+        protected function tearDown()
+        {
+            Brand::deleteAll();
+            // Store::deleteAll();
+        }
 
         function testGetBrandName()
         {
@@ -65,38 +65,38 @@
 
             $this->assertEquals(true, is_numeric($result));
         }
-        
-        // function testGetAll()
-        // {
-        //     $brand_name_1 = "backupStaticAttributes";
-        //     $test_brand_1 = new Brand($brand_name_1);
-        //     $test_brand_1->save();
-        //
-        //     $brand_name_2 = "Clarks";
-        //     $test_brand_2 = new Brand($brand_name_2);
-        //     $test_brand_2->save();
-        //
-        //     $result = Brand::getAll();
-        //
-        //     $this->assertEquals([$test_brand_1, $test_brand_2], $result);
-        // }
-        //
-        // function testDeleteAll()
-        // {
-        //     $brand_name_1 = "Naturalizer";
-        //     $test_brand_1 = new Brand($brand_name_1);
-        //     $test_brand_1->save();
-        //
-        //     $brand_name_2 = "Nine West";
-        //     $test_brand_2 = new Brand($brand_name_2);
-        //     $test_brand_2->save();
-        //
-        //     Brand::deleteAll();
-        //     $result = Brand::getAll();
-        //
-        //     $this->assertEquals([], $result);
-        // }
-        //
+
+        function testGetAll()
+        {
+            $brand_name_1 = "backupStaticAttributes";
+            $test_brand_1 = new Brand($brand_name_1);
+            $test_brand_1->save();
+
+            $brand_name_2 = "Clarks";
+            $test_brand_2 = new Brand($brand_name_2);
+            $test_brand_2->save();
+
+            $result = Brand::getAll();
+
+            $this->assertEquals([$test_brand_1, $test_brand_2], $result);
+        }
+
+        function testDeleteAll()
+        {
+            $brand_name_1 = "Naturalizer";
+            $test_brand_1 = new Brand($brand_name_1);
+            $test_brand_1->save();
+
+            $brand_name_2 = "Nine West";
+            $test_brand_2 = new Brand($brand_name_2);
+            $test_brand_2->save();
+
+            Brand::deleteAll();
+            $result = Brand::getAll();
+
+            $this->assertEquals([], $result);
+        }
+
         // function testFind()
         // {
         //     $brand_name_1 = "Mephisto";
