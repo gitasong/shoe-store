@@ -56,21 +56,21 @@
             $GLOBALS['DB']->exec("DELETE FROM stores;");
         }
 
-        // static function find($search_id)
-        // {
-        //     $returned_stores = $GLOBALS['DB']->prepare("SELECT * FROM stores WHERE id = :id");
-        //     $returned_stores->bindParam(':id', $search_id, PDO::PARAM_STR);
-        //     $returned_stores->execute();
-        //     foreach ($returned_stores as $store) {
-        //         $store_store_name = $store['store_name'];
-        //         $store_id = $store['id'];
-        //         if ($store_id == $search_id) {
-        //             $returned_store = new Store($store_store_name, $store_id);
-        //         }
-        //     }
-        //     return $returned_store;
-        // }
-        //
+        static function find($search_id)
+        {
+            $returned_stores = $GLOBALS['DB']->prepare("SELECT * FROM stores WHERE id = :id");
+            $returned_stores->bindParam(':id', $search_id, PDO::PARAM_STR);
+            $returned_stores->execute();
+            foreach ($returned_stores as $store) {
+                $store_store_name = $store['store_name'];
+                $store_id = $store['id'];
+                if ($store_id == $search_id) {
+                    $returned_store = new Store($store_store_name, $store_id);
+                }
+            }
+            return $returned_store;
+        }
+
         // function updateStoreName($new_store_name)
         // {
         //     $executed = $GLOBALS['DB']->exec("UPDATE stores SET store_name = '{$new_store_name}' WHERE id = {$this->getID()};");

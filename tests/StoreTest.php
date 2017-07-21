@@ -96,21 +96,21 @@
             $this->assertEquals([], $result);
         }
 
-        // function testFind()
-        // {
-        //     $store_name_1 = "Famous Brands";
-        //     $test_store_1 = new Store($store_name_1);
-        //     $test_store_1->save();
-        //
-        //     $store_name_2 = "Top Shoes";
-        //     $test_store_2 = new Store($store_name_2);
-        //     $test_store_2->save();
-        //
-        //     $result = Store::find($test_store_2->getID());
-        //
-        //     $this->assertEquals($test_store_2, $result);
-        // }
-        //
+        function testFind()
+        {
+            $store_name_1 = "Famous Brands";
+            $test_store_1 = new Store($store_name_1);
+            $test_store_1->save();
+
+            $store_name_2 = "Top Shoes";
+            $test_store_2 = new Store($store_name_2);
+            $test_store_2->save();
+
+            $result = Store::find($test_store_2->getID());
+
+            $this->assertEquals($test_store_2, $result);
+        }
+
         // function testUpdateStoreName()
         // {
         //     $store_name = "PayLess";
