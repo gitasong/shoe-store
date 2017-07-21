@@ -6,7 +6,7 @@
     */
 
     require_once "src/Brand.php";
-    // require_once "src/Store.php";
+    require_once "src/Store.php";
 
     $server = 'mysql:host=localhost:8889;dbname=shoe_store_test';
     $username = 'root';
@@ -17,11 +17,11 @@
     class BrandTest extends PHPUnit_Framework_TestCase
     {
 
-        protected function tearDown()
-        {
-            Brand::deleteAll();
-            // Store::deleteAll();
-        }
+        // protected function tearDown()
+        // {
+        //     Brand::deleteAll();
+        //     // Store::deleteAll();
+        // }
 
         function testGetBrandName()
         {
@@ -33,111 +33,111 @@
             $this->assertEquals($brand_name, $result);
         }
 
-        function testSetBrandName()
-        {
-            $brand_name = "Adidas";
-            $test_brand = new Brand($brand_name);
-            $new_brand_name = "Nike";
-
-            $test_brand->setBrandName($new_brand_name);
-            $result = $test_brand->getBrandName();
-
-            $this->assertEquals($new_brand_name, $result);
-        }
-
-        function testSave()
-        {
-            $brand_name = "Reebok";
-            $test_brand = new Brand($brand_name);
-
-            $executed = $test_brand->save();
-
-            $this->assertTrue($executed, "Brand not successfully saved to database");
-        }
-
-        function testGetId()
-        {
-            $brand_name = "Timberland";
-            $test_brand = new Brand($brand_name);
-            $test_brand->save();
-
-            $result = $test_brand->getId();
-
-            $this->assertEquals(true, is_numeric($result));
-        }
-
-        function testGetAll()
-        {
-            $brand_name_1 = "backupStaticAttributes";
-            $test_brand_1 = new Brand($brand_name_1);
-            $test_brand_1->save();
-
-            $brand_name_2 = "Clarks";
-            $test_brand_2 = new Brand($brand_name_2);
-            $test_brand_2->save();
-
-            $result = Brand::getAll();
-
-            $this->assertEquals([$test_brand_1, $test_brand_2], $result);
-        }
-
-        function testDeleteAll()
-        {
-            $brand_name_1 = "Naturalizer";
-            $test_brand_1 = new Brand($brand_name_1);
-            $test_brand_1->save();
-
-            $brand_name_2 = "Nine West";
-            $test_brand_2 = new Brand($brand_name_2);
-            $test_brand_2->save();
-
-            Brand::deleteAll();
-            $result = Brand::getAll();
-
-            $this->assertEquals([], $result);
-        }
-
-        function testFind()
-        {
-            $brand_name_1 = "Mephisto";
-            $test_brand_1 = new Brand($brand_name_1);
-            $test_brand_1->save();
-
-            $brand_name_2 = "Birkenstock";
-            $test_brand_2 = new Brand($brand_name_2);
-            $test_brand_2->save();
-
-            $result = Brand::find($test_brand_2->getId());
-
-            $this->assertEquals($test_brand_2, $result);
-        }
-
-        function testUpdateBrandName()
-        {
-            $brand_name = "Reebok";
-            $test_brand = new Brand($brand_name);
-            $test_brand->save();
-            $new_brand_name = "New Balance";
-
-            $test_brand->updateBrandName($new_brand_name);
-
-            $this->assertEquals("New Balance", $test_brand->getBrandName());
-        }
-
-        function testDelete()
-        {
-            $brand_name_1 = "Kenneth Cole";
-            $test_brand_1 = new Brand($brand_name_1);
-            $test_brand_1->save();
-
-            $brand_name_2 = "Manolo Blahnik";
-            $test_brand_2 = new Brand($brand_name_2);
-            $test_brand_2->save();
-
-            $test_brand_1->delete();
-
-            $this->assertEquals([$test_brand_2], Brand::getAll());
-        }
+        // function testSetBrandName()
+        // {
+        //     $brand_name = "Adidas";
+        //     $test_brand = new Brand($brand_name);
+        //     $new_brand_name = "Nike";
+        //
+        //     $test_brand->setBrandName($new_brand_name);
+        //     $result = $test_brand->getBrandName();
+        //
+        //     $this->assertEquals($new_brand_name, $result);
+        // }
+        //
+        // function testSave()
+        // {
+        //     $brand_name = "Reebok";
+        //     $test_brand = new Brand($brand_name);
+        //
+        //     $executed = $test_brand->save();
+        //
+        //     $this->assertTrue($executed, "Brand not successfully saved to database");
+        // }
+        //
+        // function testGetId()
+        // {
+        //     $brand_name = "Timberland";
+        //     $test_brand = new Brand($brand_name);
+        //     $test_brand->save();
+        //
+        //     $result = $test_brand->getId();
+        //
+        //     $this->assertEquals(true, is_numeric($result));
+        // }
+        //
+        // function testGetAll()
+        // {
+        //     $brand_name_1 = "backupStaticAttributes";
+        //     $test_brand_1 = new Brand($brand_name_1);
+        //     $test_brand_1->save();
+        //
+        //     $brand_name_2 = "Clarks";
+        //     $test_brand_2 = new Brand($brand_name_2);
+        //     $test_brand_2->save();
+        //
+        //     $result = Brand::getAll();
+        //
+        //     $this->assertEquals([$test_brand_1, $test_brand_2], $result);
+        // }
+        //
+        // function testDeleteAll()
+        // {
+        //     $brand_name_1 = "Naturalizer";
+        //     $test_brand_1 = new Brand($brand_name_1);
+        //     $test_brand_1->save();
+        //
+        //     $brand_name_2 = "Nine West";
+        //     $test_brand_2 = new Brand($brand_name_2);
+        //     $test_brand_2->save();
+        //
+        //     Brand::deleteAll();
+        //     $result = Brand::getAll();
+        //
+        //     $this->assertEquals([], $result);
+        // }
+        //
+        // function testFind()
+        // {
+        //     $brand_name_1 = "Mephisto";
+        //     $test_brand_1 = new Brand($brand_name_1);
+        //     $test_brand_1->save();
+        //
+        //     $brand_name_2 = "Birkenstock";
+        //     $test_brand_2 = new Brand($brand_name_2);
+        //     $test_brand_2->save();
+        //
+        //     $result = Brand::find($test_brand_2->getId());
+        //
+        //     $this->assertEquals($test_brand_2, $result);
+        // }
+        //
+        // function testUpdateBrandName()
+        // {
+        //     $brand_name = "Reebok";
+        //     $test_brand = new Brand($brand_name);
+        //     $test_brand->save();
+        //     $new_brand_name = "New Balance";
+        //
+        //     $test_brand->updateBrandName($new_brand_name);
+        //
+        //     $this->assertEquals("New Balance", $test_brand->getBrandName());
+        // }
+        //
+        // function testDelete()
+        // {
+        //     $brand_name_1 = "Kenneth Cole";
+        //     $test_brand_1 = new Brand($brand_name_1);
+        //     $test_brand_1->save();
+        //
+        //     $brand_name_2 = "Manolo Blahnik";
+        //     $test_brand_2 = new Brand($brand_name_2);
+        //     $test_brand_2->save();
+        //
+        //     $test_brand_1->delete();
+        //
+        //     $this->assertEquals([$test_brand_2], Brand::getAll());
+        // }
 
         // function testAddStore()
         // {
