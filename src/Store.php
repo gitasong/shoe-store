@@ -33,29 +33,29 @@
             }
         }
 
-        // function getID()
-        // {
-        //     return $this->id;
-        // }
-        //
-        // static function getAll()
-        // {
-        //     $returned_stores = $GLOBALS['DB']->query("SELECT * FROM stores");
-        //     $stores = array();
-        //     foreach($returned_stores as $store) {
-        //         $store_store_name = $store['store_name'];
-        //         $store_id = $store['id'];
-        //         $new_store = new Store($store_store_name, $store_id);
-        //         array_push($stores, $new_store);
-        //     }
-        //     return $stores;
-        // }
-        //
-        // static function deleteAll()
-        // {
-        //     $GLOBALS['DB']->exec("DELETE FROM stores;");
-        // }
-        //
+        function getID()
+        {
+            return $this->id;
+        }
+
+        static function getAll()
+        {
+            $returned_stores = $GLOBALS['DB']->query("SELECT * FROM stores");
+            $stores = array();
+            foreach($returned_stores as $store) {
+                $store_name = $store['store_name'];
+                $store_id = $store['id'];
+                $new_store = new Store($store_name, $store_id);
+                array_push($stores, $new_store);
+            }
+            return $stores;
+        }
+
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM stores;");
+        }
+
         // static function find($search_id)
         // {
         //     $returned_stores = $GLOBALS['DB']->prepare("SELECT * FROM stores WHERE id = :id");
