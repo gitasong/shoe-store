@@ -97,21 +97,21 @@
             $this->assertEquals([], $result);
         }
 
-        // function testFind()
-        // {
-        //     $brand_name_1 = "Mephisto";
-        //     $test_brand_1 = new Brand($brand_name_1);
-        //     $test_brand_1->save();
-        //
-        //     $brand_name_2 = "Birkenstock";
-        //     $test_brand_2 = new Brand($brand_name_2);
-        //     $test_brand_2->save();
-        //
-        //     $result = Brand::find($test_brand_2->getID());
-        //
-        //     $this->assertEquals($test_brand_2, $result);
-        // }
-        //
+        function testFind()
+        {
+            $brand_name_1 = "Mephisto";
+            $test_brand_1 = new Brand($brand_name_1);
+            $test_brand_1->save();
+
+            $brand_name_2 = "Birkenstock";
+            $test_brand_2 = new Brand($brand_name_2);
+            $test_brand_2->save();
+        
+            $result = Brand::find($test_brand_2->getID());
+
+            $this->assertEquals($test_brand_2, $result);
+        }
+
         // function testUpdateBrandName()
         // {
         //     $brand_name = "Reebok";
