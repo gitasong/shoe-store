@@ -13,19 +13,19 @@
             $this->id = $id;
         }
 
-        function getTitle()
+        function getBrandName()
         {
             return $this->brand_name;
         }
 
-        function setTitle($new_brand_name)
+        function setBrandName($new_brand_name)
         {
             $this->brand_name = (string) $new_brand_name;
         }
 
         function save()
         {
-            $executed = $GLOBALS['DB']->exec("INSERT INTO brands (brand_name) VALUES ('{$this->getTitle()}')");
+            $executed = $GLOBALS['DB']->exec("INSERT INTO brands (brand_name) VALUES ('{$this->getBrandName()}')");
             if ($executed) {
                 $this->id = $GLOBALS['DB']->lastInsertId();
                 return true;
@@ -72,11 +72,11 @@
             return $returned_brand;
         }
 
-        function updateTitle($new_brand_name)
+        function updateBrandName($new_brand_name)
         {
             $executed = $GLOBALS['DB']->exec("UPDATE brands SET brand_name = '{$new_brand_name}' WHERE id = {$this->getID()};");
             if ($executed) {
-                $this->setTitle($new_brand_name);
+                $this->setBrandName($new_brand_name);
                 return true;
             } else {
                 return false;
@@ -116,7 +116,7 @@
             return $stores;
         }
 
-        static function findBrandByTitle($search_brand_name)
+        static function findBrandByBrandName($search_brand_name)
         {
             $returned_brands = $GLOBALS['DB']->prepare("SELECT * FROM brands WHERE brand_name = :brand_name");
             $returned_brands->bindParam(':brand_name', $search_brand_name, PDO::PARAM_STR);
