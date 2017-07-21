@@ -31,18 +31,18 @@
             $this->assertEquals($store_name, $result);
         }
 
-        // function testSetStoreName()
-        // {
-        //     $store_name = "TJ Maxx";
-        //     $test_store = new Store($store_name);
-        //     $new_store_name = "Top Shoes";
-        //     $test_store->setStoreName($new_store_name);
-        //
-        //     $result = $test_store->getStoreName();
-        //
-        //     $this->assertEquals($new_store_name, $result);
-        // }
-        //
+        function testSetStoreName()
+        {
+            $store_name = "TJ Maxx";
+            $test_store = new Store($store_name);
+            $new_store_name = "Top Shoes";
+            $test_store->setStoreName($new_store_name);
+
+            $result = $test_store->getStoreName();
+
+            $this->assertEquals($new_store_name, $result);
+        }
+
         // function testSave()
         // {
         //     $store_name = "PayLess";
