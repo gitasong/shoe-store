@@ -55,17 +55,17 @@
             $this->assertTrue($executed, "Brand not successfully saved to database");
         }
 
-        // function testGetID()
-        // {
-        //     $brand_name = "Timberland";
-        //     $test_brand = new Brand($brand_name);
-        //     $test_brand->save();
-        //
-        //     $result = $test_brand->getID();
-        //
-        //     $this->assertEquals(true, is_numeric($result));
-        // }
-        //
+        function testGetID()
+        {
+            $brand_name = "Timberland";
+            $test_brand = new Brand($brand_name);
+            $test_brand->save();
+
+            $result = $test_brand->getID();
+
+            $this->assertEquals(true, is_numeric($result));
+        }
+        
         // function testGetAll()
         // {
         //     $brand_name_1 = "backupStaticAttributes";

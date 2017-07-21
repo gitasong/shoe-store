@@ -34,11 +34,11 @@
             }
         }
 
-    //     function getID()
-    //     {
-    //         return $this->id;
-    //     }
-    //
+        function getID()
+        {
+            return $this->id;
+        }
+
     //     static function getAll()
     //     {
     //         $returned_brands = $GLOBALS['DB']->query("SELECT * FROM brands");
