@@ -82,16 +82,16 @@
             }
         }
 
-        // function delete()
-        // {
-        //     $executed = $GLOBALS['DB']->exec("DELETE FROM stores WHERE id = {$this->getID()};");
-        //     if ($executed) {
-        //         return true;
-        //     } else {
-        //         return false;
-        //     }
-        // }
-        //
+        function delete()
+        {
+            $executed = $GLOBALS['DB']->exec("DELETE FROM stores WHERE id = {$this->getID()};");
+            if ($executed) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
         // function addBrand($brand)
         // {
         //     $executed = $GLOBALS['DB']->exec("INSERT INTO brands_stores (store_id, brand_id) VALUES ({$this->getID()}, {$brand->getID()});");
