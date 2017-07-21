@@ -45,23 +45,23 @@
             $this->assertEquals($new_brand_name, $result);
         }
 
-        // function testSave()
-        // {
-        //     $brand_name = "Reebok";
-        //     $test_brand = new Brand($brand_name);
-        //
-        //     $executed = $test_brand->save();
-        //
-        //     $this->assertTrue($executed, "Brand not successfully saved to database");
-        // }
-        //
-        // function testGetId()
+        function testSave()
+        {
+            $brand_name = "Reebok";
+            $test_brand = new Brand($brand_name);
+
+            $executed = $test_brand->save();
+
+            $this->assertTrue($executed, "Brand not successfully saved to database");
+        }
+
+        // function testGetID()
         // {
         //     $brand_name = "Timberland";
         //     $test_brand = new Brand($brand_name);
         //     $test_brand->save();
         //
-        //     $result = $test_brand->getId();
+        //     $result = $test_brand->getID();
         //
         //     $this->assertEquals(true, is_numeric($result));
         // }
@@ -107,7 +107,7 @@
         //     $test_brand_2 = new Brand($brand_name_2);
         //     $test_brand_2->save();
         //
-        //     $result = Brand::find($test_brand_2->getId());
+        //     $result = Brand::find($test_brand_2->getID());
         //
         //     $this->assertEquals($test_brand_2, $result);
         // }
