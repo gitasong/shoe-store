@@ -53,13 +53,13 @@
             $this->assertTrue($executed, "Store not successfully saved to database");
         }
 
-        function testGetId()
+        function testGetID()
         {
             $store_name = "Famous Brands";
             $test_store = new Store($store_name);
             $test_store->save();
 
-            $result = $test_store->getId();
+            $result = $test_store->getID();
 
             $this->assertEquals(true, is_numeric($result));
         }
@@ -105,7 +105,7 @@
             $test_store_2 = new Store($store_name_2);
             $test_store_2->save();
 
-            $result = Store::find($test_store_2->getId());
+            $result = Store::find($test_store_2->getID());
 
             $this->assertEquals($test_store_2, $result);
         }
