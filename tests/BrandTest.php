@@ -106,24 +106,24 @@
             $brand_name_2 = "Birkenstock";
             $test_brand_2 = new Brand($brand_name_2);
             $test_brand_2->save();
-        
+
             $result = Brand::find($test_brand_2->getID());
 
             $this->assertEquals($test_brand_2, $result);
         }
 
-        // function testUpdateBrandName()
-        // {
-        //     $brand_name = "Reebok";
-        //     $test_brand = new Brand($brand_name);
-        //     $test_brand->save();
-        //     $new_brand_name = "New Balance";
-        //
-        //     $test_brand->updateBrandName($new_brand_name);
-        //
-        //     $this->assertEquals("New Balance", $test_brand->getBrandName());
-        // }
-        //
+        function testUpdateBrandName()
+        {
+            $brand_name = "Reebok";
+            $test_brand = new Brand($brand_name);
+            $test_brand->save();
+            $new_brand_name = "New Balance";
+
+            $test_brand->updateBrandName($new_brand_name);
+
+            $this->assertEquals("New Balance", $test_brand->getBrandName());
+        }
+
         // function testDelete()
         // {
         //     $brand_name_1 = "Kenneth Cole";

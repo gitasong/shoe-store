@@ -72,17 +72,17 @@
             return $returned_brand;
         }
 
-    //     function updateBrandName($new_brand_name)
-    //     {
-    //         $executed = $GLOBALS['DB']->exec("UPDATE brands SET brand_name = '{$new_brand_name}' WHERE id = {$this->getID()};");
-    //         if ($executed) {
-    //             $this->setBrandName($new_brand_name);
-    //             return true;
-    //         } else {
-    //             return false;
-    //         }
-    //     }
-    //
+        function updateBrandName($new_brand_name)
+        {
+            $executed = $GLOBALS['DB']->exec("UPDATE brands SET brand_name = '{$new_brand_name}' WHERE id = {$this->getID()};");
+            if ($executed) {
+                $this->setBrandName($new_brand_name);
+                return true;
+            } else {
+                return false;
+            }
+        }
+
     //     function delete()
     //     {
     //         $executed = $GLOBALS['DB']->exec("DELETE FROM brands WHERE id = {$this->getID()};");
