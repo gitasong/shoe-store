@@ -124,20 +124,20 @@
             $this->assertEquals("New Balance", $test_brand->getBrandName());
         }
 
-        // function testDelete()
-        // {
-        //     $brand_name_1 = "Kenneth Cole";
-        //     $test_brand_1 = new Brand($brand_name_1);
-        //     $test_brand_1->save();
-        //
-        //     $brand_name_2 = "Manolo Blahnik";
-        //     $test_brand_2 = new Brand($brand_name_2);
-        //     $test_brand_2->save();
-        //
-        //     $test_brand_1->delete();
-        //
-        //     $this->assertEquals([$test_brand_2], Brand::getAll());
-        // }
+        function testDelete()
+        {
+            $brand_name_1 = "Kenneth Cole";
+            $test_brand_1 = new Brand($brand_name_1);
+            $test_brand_1->save();
+
+            $brand_name_2 = "Manolo Blahnik";
+            $test_brand_2 = new Brand($brand_name_2);
+            $test_brand_2->save();
+
+            $test_brand_1->delete();
+
+            $this->assertEquals([$test_brand_2], Brand::getAll());
+        }
 
         // function testAddStore()
         // {
