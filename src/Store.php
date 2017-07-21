@@ -71,17 +71,17 @@
             return $returned_store;
         }
 
-        // function updateStoreName($new_store_name)
-        // {
-        //     $executed = $GLOBALS['DB']->exec("UPDATE stores SET store_name = '{$new_store_name}' WHERE id = {$this->getID()};");
-        //     if ($executed) {
-        //         $this->setStoreName($new_store_name);
-        //         return true;
-        //     } else {
-        //         return false;
-        //     }
-        // }
-        //
+        function updateStoreName($new_store_name)
+        {
+            $executed = $GLOBALS['DB']->exec("UPDATE stores SET store_name = '{$new_store_name}' WHERE id = {$this->getID()};");
+            if ($executed) {
+                $this->setStoreName($new_store_name);
+                return true;
+            } else {
+                return false;
+            }
+        }
+
         // function delete()
         // {
         //     $executed = $GLOBALS['DB']->exec("DELETE FROM stores WHERE id = {$this->getID()};");

@@ -111,18 +111,18 @@
             $this->assertEquals($test_store_2, $result);
         }
 
-        // function testUpdateStoreName()
-        // {
-        //     $store_name = "PayLess";
-        //     $test_store = new Store($store_name);
-        //     $test_store->save();
-        //     $new_store_name = "Famous Brands";
-        //
-        //     $test_store->updateStoreName($new_store_name);
-        //
-        //     $this->assertEquals("Famous Brands", $test_store->getStoreName());
-        // }
-        //
+        function testUpdateStoreName()
+        {
+            $store_name = "PayLess";
+            $test_store = new Store($store_name);
+            $test_store->save();
+            $new_store_name = "Famous Brands";
+
+            $test_store->updateStoreName($new_store_name);
+
+            $this->assertEquals("Famous Brands", $test_store->getStoreName());
+        }
+
         // function testDelete()
         // {
         //     $store_name_1 = "Macys";
