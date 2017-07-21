@@ -33,18 +33,18 @@
             $this->assertEquals($brand_name, $result);
         }
 
-        // function testSetBrandName()
-        // {
-        //     $brand_name = "Adidas";
-        //     $test_brand = new Brand($brand_name);
-        //     $new_brand_name = "Nike";
-        //
-        //     $test_brand->setBrandName($new_brand_name);
-        //     $result = $test_brand->getBrandName();
-        //
-        //     $this->assertEquals($new_brand_name, $result);
-        // }
-        //
+        function testSetBrandName()
+        {
+            $brand_name = "Adidas";
+            $test_brand = new Brand($brand_name);
+            $new_brand_name = "Nike";
+
+            $test_brand->setBrandName($new_brand_name);
+            $result = $test_brand->getBrandName();
+
+            $this->assertEquals($new_brand_name, $result);
+        }
+
         // function testSave()
         // {
         //     $brand_name = "Reebok";

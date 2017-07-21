@@ -18,11 +18,11 @@
             return $this->brand_name;
         }
 
-    //     function setBrandName($new_brand_name)
-    //     {
-    //         $this->brand_name = (string) $new_brand_name;
-    //     }
-    //
+        function setBrandName($new_brand_name)
+        {
+            $this->brand_name = (string) $new_brand_name;
+        }
+    
     //     function save()
     //     {
     //         $executed = $GLOBALS['DB']->exec("INSERT INTO brands (brand_name) VALUES ('{$this->getBrandName()}')");
