@@ -19,7 +19,7 @@
         protected function tearDown()
         {
             Store::deleteAll();
-            // Brand::deleteAll();
+            Brand::deleteAll();
         }
 
         function testGetStoreName()
@@ -141,7 +141,7 @@
         function testAddBrand()
         {
             $brand_name = "Adidas";
-            $price = 69.99;
+            $price = number_format(69.99, 2);
             $test_brand = new Brand($brand_name, $price);
             $test_brand->save();
 
@@ -157,12 +157,12 @@
         function testGetBrands()
         {
             $brand_name_1 = "Adidas";
-            $price_1 = 69.99;
+            $price_1 = number_format(69.99, 2);
             $test_brand_1 = new Brand($brand_name_1, $price_1);
             $test_brand_1->save();
 
             $brand_name_2 = "Nike";
-            $price_2 = 79.99;
+            $price_2 = number_format(79.99, 2);
             $test_brand_2 = new Brand($brand_name_2, $price_2);
             $test_brand_2->save();
 
