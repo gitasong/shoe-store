@@ -159,6 +159,19 @@
             $this->assertEquals("New Balance", $test_brand->getBrandName());
         }
 
+        function testUpdatePrice()
+        {
+            $brand_name = "Reebok";
+            $price = "49.99";
+            $test_brand = new Brand($brand_name, $price);
+            $test_brand->save();
+            $new_$price = "59.99";
+
+            $test_brand->updatePrice($new_price);
+
+            $this->assertEquals("59.99", $test_brand->getPrice());
+        }
+
         function testDelete()
         {
             $brand_name_1 = "Kenneth Cole";
