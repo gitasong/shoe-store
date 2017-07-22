@@ -27,9 +27,12 @@
     });
 
     $app->post("/add_store", function() use ($app) {
-        $store_name = $_POST['store_name'];
-        $new_store = new Store($store_name);
-        $new_store->save();
+        $new_store_name = $_POST['store_name'];
+        $isDuplicate = Store::isDuplicateStoreName($new_store_name);
+        if (!($isDuplicate)) {
+            $new_store = new Store($new_store_name);
+            $new_store->save();
+        }
         return $app['twig']->render('stores.html.twig', array('all_stores' => Store::getAll()));
     });
 
