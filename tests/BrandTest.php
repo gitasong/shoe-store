@@ -26,7 +26,8 @@
         function testGetBrandName()
         {
             $brand_name = "Adidas";
-            $test_brand = new Brand($brand_name);
+            $price = "69.99";
+            $test_brand = new Brand($brand_name, $price);
 
             $result = $test_brand->getBrandName();
 
@@ -36,7 +37,8 @@
         function testSetBrandName()
         {
             $brand_name = "Adidas";
-            $test_brand = new Brand($brand_name);
+            $price = "69.99";
+            $test_brand = new Brand($brand_name, $price);
             $new_brand_name = "Nike";
 
             $test_brand->setBrandName($new_brand_name);
@@ -48,7 +50,8 @@
         function testSave()
         {
             $brand_name = "Reebok";
-            $test_brand = new Brand($brand_name);
+            $price = "79.99";
+            $test_brand = new Brand($brand_name, $price);
 
             $executed = $test_brand->save();
 
@@ -58,7 +61,8 @@
         function testGetID()
         {
             $brand_name = "Timberland";
-            $test_brand = new Brand($brand_name);
+            $price = "89.99";
+            $test_brand = new Brand($brand_name, $price);
             $test_brand->save();
 
             $result = $test_brand->getID();
@@ -68,12 +72,14 @@
 
         function testGetAll()
         {
-            $brand_name_1 = "backupStaticAttributes";
-            $test_brand_1 = new Brand($brand_name_1);
+            $brand_name_1 = "Bass";
+            $price = "89.99";
+            $test_brand_1 = new Brand($brand_name_1, $price_1);
             $test_brand_1->save();
 
             $brand_name_2 = "Clarks";
-            $test_brand_2 = new Brand($brand_name_2);
+            $price = "109.99";
+            $test_brand_2 = new Brand($brand_name_2, $price_2);
             $test_brand_2->save();
 
             $result = Brand::getAll();
@@ -84,11 +90,13 @@
         function testDeleteAll()
         {
             $brand_name_1 = "Naturalizer";
-            $test_brand_1 = new Brand($brand_name_1);
+            $price = "79.99";
+            $test_brand_1 = new Brand($brand_name_1, $price_1);
             $test_brand_1->save();
 
             $brand_name_2 = "Nine West";
-            $test_brand_2 = new Brand($brand_name_2);
+            $price = "89.99";
+            $test_brand_2 = new Brand($brand_name_2, $price_2);
             $test_brand_2->save();
 
             Brand::deleteAll();
@@ -100,11 +108,13 @@
         function testFind()
         {
             $brand_name_1 = "Mephisto";
-            $test_brand_1 = new Brand($brand_name_1);
+            $price_1 = "129.99";
+            $test_brand_1 = new Brand($brand_name_1, $price_1);
             $test_brand_1->save();
 
             $brand_name_2 = "Birkenstock";
-            $test_brand_2 = new Brand($brand_name_2);
+            $price_2 = "129.99";
+            $test_brand_2 = new Brand($brand_name_2, $price_2);
             $test_brand_2->save();
 
             $result = Brand::find($test_brand_2->getID());
@@ -115,7 +125,8 @@
         function testUpdateBrandName()
         {
             $brand_name = "Reebok";
-            $test_brand = new Brand($brand_name);
+            $price = "49.99";
+            $test_brand = new Brand($brand_name, $price);
             $test_brand->save();
             $new_brand_name = "New Balance";
 
@@ -127,11 +138,13 @@
         function testDelete()
         {
             $brand_name_1 = "Kenneth Cole";
-            $test_brand_1 = new Brand($brand_name_1);
+            $price_1 = "129.99";
+            $test_brand_1 = new Brand($brand_name_1, $price_1);
             $test_brand_1->save();
 
             $brand_name_2 = "Manolo Blahnik";
-            $test_brand_2 = new Brand($brand_name_2);
+            $price = "139.99";
+            $test_brand_2 = new Brand($brand_name_2, $price_2);
             $test_brand_2->save();
 
             $test_brand_1->delete();
@@ -146,7 +159,8 @@
         //     $test_store->save();
         //
         //     $brand_name = "Nine West";
-        //     $test_brand = new Brand($brand_name);
+        //     $price = "99.99";
+        //     $test_brand = new Brand($brand_name, $price);
         //     $test_brand->save();
         //
         //     $test_brand->addStore($test_store);
@@ -164,8 +178,9 @@
         //     $test_store_2 = new Store($store_name_2);
         //     $test_store_2->save();
         //
-        //     $brand_name = "Dansko?";
-        //     $test_brand = new Brand($brand_name);
+        //     $brand_name = "Dansko";
+        //     $price = "79.99";
+        //     $test_brand = new Brand($brand_name, $price);
         //     $test_brand->save();
         //
         //     $test_brand->addStore($test_store);
@@ -177,11 +192,13 @@
         // function testFindBrandByBrandName()
         // {
         //     $brand_name_1 = "Merrell";
-        //     $test_brand_1 = new Brand($brand_name_1);
+        //     $price = "89.99";
+        //     $test_brand_1 = new Brand($brand_name_1, $price_1);
         //     $test_brand_1->save();
         //
         //     $brand_name_2 = "Minnetonka";
-        //     $test_brand_2 = new Brand($brand_name_2);
+        //     $price = "79.99";
+        //     $test_brand_2 = new Brand($brand_name_2, $price_2);
         //     $test_brand_2->save();
         //
         //     $result = Brand::findBrandByBrandName($test_brand_2->getBrandName());
