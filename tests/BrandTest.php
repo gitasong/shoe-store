@@ -26,7 +26,7 @@
         function testGetBrandName()
         {
             $brand_name = "Adidas";
-            $price = "69.99";
+            $price = 69.99;
             $test_brand = new Brand($brand_name, $price);
 
             $result = $test_brand->getBrandName();
@@ -37,7 +37,7 @@
         function testSetBrandName()
         {
             $brand_name = "Adidas";
-            $price = "69.99";
+            $price = 69.99;
             $test_brand = new Brand($brand_name, $price);
             $new_brand_name = "Nike";
 
@@ -50,7 +50,7 @@
         function testGetPrice()
         {
             $brand_name = "Adidas";
-            $price = "69.99";
+            $price = 69.99;
             $test_brand = new Brand($brand_name, $price);
 
             $result = $test_brand->getPrice();
@@ -61,9 +61,9 @@
         function testSetPrice()
         {
             $brand_name = "Adidas";
-            $price = "69.99";
+            $price = 69.99;
             $test_brand = new Brand($brand_name, $price);
-            $new_price = "59.99";
+            $new_price = 59.99;
 
             $test_brand->setPrice($new_price);
             $result = $test_brand->getPrice();
@@ -74,7 +74,7 @@
         function testSave()
         {
             $brand_name = "Reebok";
-            $price = "79.99";
+            $price = 79.99;
             $test_brand = new Brand($brand_name, $price);
 
             $executed = $test_brand->save();
@@ -85,7 +85,7 @@
         function testGetID()
         {
             $brand_name = "Timberland";
-            $price = "89.99";
+            $price = 89.99;
             $test_brand = new Brand($brand_name, $price);
             $test_brand->save();
 
@@ -97,12 +97,12 @@
         function testGetAll()
         {
             $brand_name_1 = "Bass";
-            $price_1 = "89.99";
+            $price_1 = 89.99;
             $test_brand_1 = new Brand($brand_name_1, $price_1);
             $test_brand_1->save();
 
             $brand_name_2 = "Clarks";
-            $price_2 = "109.99";
+            $price_2 = 109.99;
             $test_brand_2 = new Brand($brand_name_2, $price_2);
             $test_brand_2->save();
 
@@ -114,12 +114,12 @@
         function testDeleteAll()
         {
             $brand_name_1 = "Naturalizer";
-            $price_1 = "79.99";
+            $price_1 = 79.99;
             $test_brand_1 = new Brand($brand_name_1, $price_1);
             $test_brand_1->save();
 
             $brand_name_2 = "Nine West";
-            $price_2 = "89.99";
+            $price_2 = 89.99;
             $test_brand_2 = new Brand($brand_name_2, $price_2);
             $test_brand_2->save();
 
@@ -132,12 +132,12 @@
         function testFind()
         {
             $brand_name_1 = "Mephisto";
-            $price_1 = "139.99";
+            $price_1 = 139.99;
             $test_brand_1 = new Brand($brand_name_1, $price_1);
             $test_brand_1->save();
 
             $brand_name_2 = "Birkenstock";
-            $price_2 = "129.99";
+            $price_2 = 129.99;
             $test_brand_2 = new Brand($brand_name_2, $price_2);
             $test_brand_2->save();
 
@@ -149,7 +149,7 @@
         function testUpdateBrandName()
         {
             $brand_name = "Reebok";
-            $price = "49.99";
+            $price = 49.99;
             $test_brand = new Brand($brand_name, $price);
             $test_brand->save();
             $new_brand_name = "New Balance";
@@ -162,25 +162,25 @@
         function testUpdatePrice()
         {
             $brand_name = "Reebok";
-            $price = "49.99";
+            $price = 49.99;
             $test_brand = new Brand($brand_name, $price);
             $test_brand->save();
-            $new_price = "59.99";
+            $new_price = 59.99;
 
             $test_brand->updatePrice($new_price);
 
-            $this->assertEquals("59.99", $test_brand->getPrice());
+            $this->assertEquals(59.99, $test_brand->getPrice());
         }
 
         function testDelete()
         {
             $brand_name_1 = "Kenneth Cole";
-            $price_1 = "129.99";
+            $price_1 = 129.99;
             $test_brand_1 = new Brand($brand_name_1, $price_1);
             $test_brand_1->save();
 
             $brand_name_2 = "Manolo Blahnik";
-            $price_2 = "139.99";
+            $price_2 = 139.99;
             $test_brand_2 = new Brand($brand_name_2, $price_2);
             $test_brand_2->save();
 
@@ -196,7 +196,7 @@
         //     $test_store->save();
         //
         //     $brand_name = "Nine West";
-        //     $price = "99.99";
+        //     $price = 99.99;
         //     $test_brand = new Brand($brand_name, $price);
         //     $test_brand->save();
         //
@@ -216,7 +216,7 @@
         //     $test_store_2->save();
         //
         //     $brand_name = "Dansko";
-        //     $price = "79.99";
+        //     $price = 79.99;
         //     $test_brand = new Brand($brand_name, $price);
         //     $test_brand->save();
         //
@@ -229,12 +229,12 @@
         // function testFindBrandByBrandName()
         // {
         //     $brand_name_1 = "Merrell";
-        //     $price = "89.99";
+        //     $price = 89.99;
         //     $test_brand_1 = new Brand($brand_name_1, $price_1);
         //     $test_brand_1->save();
         //
         //     $brand_name_2 = "Minnetonka";
-        //     $price = "79.99";
+        //     $price = 79.99;
         //     $test_brand_2 = new Brand($brand_name_2, $price_2);
         //     $test_brand_2->save();
         //
