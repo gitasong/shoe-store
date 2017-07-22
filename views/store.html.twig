@@ -18,6 +18,18 @@
                 <button type="submit" name="button">Update Store</button>
             </form>
 
+            <h2>Assign A Brand To This Store</h2>
+
+            <form action="/assign_brand/{{ store.getID }}" name="assign_brand" method="post">
+                <label for="all_brands">Add A Brand: </label>
+                <select name="all_brands">
+                    {% for brand in all_brands %}
+                        <option value="{{ brand.getID }}">{{ brand.getTitle }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" name="button">Add Brand</button>
+            </form>
+
             <form action="/delete_store/{{ store.getID }}" method="post">
                 <input name="_method" type="hidden" value="delete">
 
