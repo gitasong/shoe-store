@@ -66,8 +66,11 @@
     $app->post("/add_brand", function() use ($app) {
         $new_brand_name = $_POST['brand_name'];
         $new_price = $_POST['price'];
-        $new_brand = new Brand($new_brand_name, $new_price);
-        $new_brand->save();
+        $isDuplicate = Brand::isDuplicateBrandName($new_brand_name);
+        if (!($isDuplicate)) {
+            $new_brand = new Brand($new_brand_name, $new_price);
+            $new_brand->save();
+        }
         return $app['twig']->render('brands.html.twig', array('all_brands' => Brand::getAll()));
     });
 
