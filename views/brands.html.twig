@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+        <title>Famous Shoe Distribution | Brands</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+
+            <h1>Famous Shoe Distribution | Brands</h1>
+
+            {% if all_brands is not empty %}
+                <h2>All Brands</h2>
+                <ul>
+                    {% for brand in all_brands %}
+                        <li>
+                            <h4><a href="/brand/{{ brand.getID }}">{{ brand.getBrandName }}</a>  ID: {{ brand.getID }} Price Point: ${{ brand.getPrice }}</h4>
+                            <span>
+                                <form action="/edit_brand/{{ brand.getID }}" method="post">
+                                    <button type="submit">Edit Brand</button>
+                                </form>
+                            </span>
+                            <span>
+                                <form action="/delete_brand/{{ brand.getID }}" method="post">
+                                    <input name="_method" type="hidden" value="delete">
+
+                                    <button type="submit">Delete Brand</button>
+                                </form>
+                            </span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <h2>Add A Brand</h2>
+            <form action='/add_brand' method='post'>
+                <label for='brand_name'>Brand Name: </label>
+                <input id='brand_name' name='brand_name' type='text' required>
+
+                <label for='price'>Price Point: $</label>
+                <input id='price' name='price' type='number' min='0.01' step='0.01' max='10000' required>
+
+                <span>
+                    <button type='submit'>Add Brand</button>
+                </span>
+            </form>
+
+            <h4><a href='/'>Home</a></h4>
+        </div>
+    </body>
+</html>
