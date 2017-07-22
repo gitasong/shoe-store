@@ -13,7 +13,7 @@
                 <ul>
                     {% for brand in all_brands %}
                         <li>
-                            <h4><a href="/brand/{{ brand.getID }}">{{ brand.getBrandName }}</a>  ID: {{ brand.getID }} Price Point: ${{ brand.getPrice }}</h4>
+                            <h4>{{ brand.getBrandName }} ID: {{ brand.getID }} Price Point: ${{ brand.getPrice }}</h4>
                             <!-- <span>
                                 <form action="/edit_brand/{*{ brand.getID }}" method="post">
                                     <button type="submit">Edit Brand</button>
