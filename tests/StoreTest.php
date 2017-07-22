@@ -201,9 +201,6 @@
             $test_store_2 = new Store($store_name_2);
             $test_store_2->save();
 
-            // $store_name_3 = "Famous Brands";
-            // $test_store_3 = new Store($store_name_3);
-
             $result = Store::isDuplicateStoreName($test_store_2->getStoreName());
 
             $this->assertEquals(true, $result);

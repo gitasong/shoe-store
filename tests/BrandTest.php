@@ -201,67 +201,10 @@
             $test_brand_2 = new Brand($brand_name_2, $price_2);
             $test_brand_2->save();
 
-            // $brand_name_3 = "Reebok";
-            // $price_3 = number_format(49.99, 2);
-            // $test_brand_3 = new Brand($brand_name_3, $price_3);
-
             $result = Brand::isDuplicateBrandName($test_brand_2->getBrandName());
 
             $this->assertEquals(true, $result);
         }
 
-        // function testAddStore()
-        // {
-        //     $store_name = "Macys";
-        //     $test_store = new Store($store_name);
-        //     $test_store->save();
-        //
-        //     $brand_name = "Nine West";
-        //     $price = number_format(99.99, 2);
-        //     $test_brand = new Brand($brand_name, $price);
-        //     $test_brand->save();
-        //
-        //     $test_brand->addStore($test_store);
-        //
-        //     $this->assertEquals($test_brand->getStores(), [$test_store]);
-        // }
-        //
-        // function testGetStores()
-        // {
-        //     $store_name = "Top Shoes";
-        //     $test_store = new Store($store_name);
-        //     $test_store->save();
-        //
-        //     $store_name_2 = "PayLess";
-        //     $test_store_2 = new Store($store_name_2);
-        //     $test_store_2->save();
-        //
-        //     $brand_name = "Dansko";
-        //     $price = number_format(79.99, 2);
-        //     $test_brand = new Brand($brand_name, $price);
-        //     $test_brand->save();
-        //
-        //     $test_brand->addStore($test_store);
-        //     $test_brand->addStore($test_store_2);
-        //
-        //     $this->assertEquals($test_brand->getStores(), [$test_store, $test_store_2]);
-        // }
-        //
-        // function testFindBrandByBrandName()
-        // {
-        //     $brand_name_1 = "Merrell";
-        //     $price = number_format(89.99, 2);
-        //     $test_brand_1 = new Brand($brand_name_1, $price_1);
-        //     $test_brand_1->save();
-        //
-        //     $brand_name_2 = "Minnetonka";
-        //     $price = number_format(79.99, 2);
-        //     $test_brand_2 = new Brand($brand_name_2, $price_2);
-        //     $test_brand_2->save();
-        //
-        //     $result = Brand::findBrandByBrandName($test_brand_2->getBrandName());
-        //
-        //     $this->assertEquals($test_brand_2, $result);
-        // }
     }
 ?>

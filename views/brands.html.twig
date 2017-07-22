@@ -14,11 +14,6 @@
                     {% for brand in all_brands %}
                         <li>
                             <h4>{{ brand.getBrandName }} ID: {{ brand.getID }} Price Point: ${{ brand.getPrice }}</h4>
-                            <!-- <span>
-                                <form action="/edit_brand/{*{ brand.getID }}" method="post">
-                                    <button type="submit">Edit Brand</button>
-                                </form>
-                            </span> -->
                             <span>
                                 <form action="/delete_brand/{{ brand.getID }}" method="post">
                                     <input name="_method" type="hidden" value="delete">
