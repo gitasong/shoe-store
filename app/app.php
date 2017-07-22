@@ -27,7 +27,7 @@
     });
 
     $app->post("/add_store", function() use ($app) {
-        $new_store_name = $_POST['store_name'];
+        $new_store_name = ucfirst($_POST['store_name']);
         $isDuplicate = Store::isDuplicateStoreName($new_store_name);
         if (!($isDuplicate)) {
             $new_store = new Store($new_store_name);
@@ -64,7 +64,7 @@
     });
 
     $app->post("/add_brand", function() use ($app) {
-        $new_brand_name = $_POST['brand_name'];
+        $new_brand_name = ucfirst($_POST['brand_name']);
         $new_price = $_POST['price'];
         $isDuplicate = Brand::isDuplicateBrandName($new_brand_name);
         if (!($isDuplicate)) {
