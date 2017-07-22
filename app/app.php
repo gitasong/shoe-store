@@ -38,6 +38,13 @@
         return $app['twig']->render('store.html.twig', array('store' => $store));
     });
 
+    $app->patch("/edit_store/{id}", function($id) use ($app) {
+        $new_store_name = $_POST['store_name'];
+        $store = Store::find($id);
+        $store->updateStoreName($new_store_name);
+        return $app['twig']->render('store.html.twig', array('store' => $store));
+    });
+
     $app->delete("/delete_store/{id}", function($id) use ($app) {
         $store = Store::find($id);
         $store->delete();
