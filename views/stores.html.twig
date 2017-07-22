@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+        <title>Famous Shoe Distribution | Stores</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+
+            <h1>Famous Shoe Distribution | Stores</h1>
+
+            {% if all_stores is not empty %}
+                <h2>All Stores</h2>
+                <ul>
+                    {% for store in all_stores %}
+                        <li>
+                            <h4><a href="/store/{{ store.getID }}">{{ store.getStoreName }}</a>  ID: {{ store.getID }}</h4>
+                            <span>
+                                <form action="/stores/{{ store.getID }}/edit" method="post">
+                                    <button type="submit">Edit Store</button>
+                                </form>
+                            </span>
+                            <span>
+                                <form action="/stores/{{ store.getID }}" method="post">
+                                    <input name="_method" type="hidden" value="delete">
+
+                                    <button type="submit">Delete Store</button>
+                                </form>
+                            </span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <h2>Add A Store</h2>
+            <form action='/stores' method='post'>
+                <label for='store_name'>Store Name: </label>
+                <input id='store_name' name='store_name' type='text' required>
+
+                <span>
+                    <button type='submit'>Add Store</button>
+                </span>
+            </form>
+
+            <h4><a href='/'>Home</a></h4>
+        </div>
+    </body>
+</html>
