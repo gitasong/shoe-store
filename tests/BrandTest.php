@@ -47,6 +47,30 @@
             $this->assertEquals($new_brand_name, $result);
         }
 
+        function testGetPrice()
+        {
+            $brand_name = "Adidas";
+            $price = "69.99";
+            $test_brand = new Brand($brand_name, $price);
+
+            $result = $test_brand->getPrice();
+
+            $this->assertEquals($price, $result);
+        }
+
+        function testSetPrice()
+        {
+            $brand_name = "Adidas";
+            $price = "69.99";
+            $test_brand = new Brand($brand_name, $price);
+            $new_price = "59.99";
+
+            $test_brand->setPrice($new_price);
+            $result = $test_brand->getPrice();
+
+            $this->assertEquals($new_price, $result);
+        }
+
         function testSave()
         {
             $brand_name = "Reebok";
