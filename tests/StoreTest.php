@@ -173,19 +173,19 @@
         //     $this->assertEquals($test_store->getBrands(), [$test_brand, $test_brand_2]);
         // }
         //
-        // function testFindStoreByName()
-        // {
-        //     $store_name_1 = "Macys";
-        //     $test_store_1 = new Store($store_name_1);
-        //     $test_store_1->save();
-        //
-        //     $store_name_2 = "TJ Maxx";
-        //     $test_store_2 = new Store($store_name_2);
-        //     $test_store_2->save();
-        //
-        //     $result = Store::findStoreByName($test_store_2->getStoreName());
-        //
-        //     $this->assertEquals($test_store_2, $result);
-        // }
+        function testFindStoreByName()
+        {
+            $store_name_1 = "Macys";
+            $test_store_1 = new Store($store_name_1);
+            $test_store_1->save();
+
+            $store_name_2 = "TJ Maxx";
+            $test_store_2 = new Store($store_name_2);
+            $test_store_2->save();
+
+            $result = Store::findStoreByName($test_store_2->getStoreName());
+
+            $this->assertEquals($test_store_2, $result);
+        }
     }
 ?>
