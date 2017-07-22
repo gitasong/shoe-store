@@ -97,16 +97,16 @@
             }
         }
 
-        // function updatePrice($new_price)
-        // {
-        //     $executed = $GLOBALS['DB']->exec("UPDATE brands SET price = '{$new_brand_price}' WHERE id = {$this->getID()};");
-        //     if ($executed) {
-        //         $this->setPrice($new_price);
-        //         return true;
-        //     } else {
-        //         return false;
-        //     }
-        // }
+        function updatePrice($new_price)
+        {
+            $executed = $GLOBALS['DB']->exec("UPDATE brands SET price = '{$new_price}' WHERE id = {$this->getID()};");
+            if ($executed) {
+                $this->setPrice($new_price);
+                return true;
+            } else {
+                return false;
+            }
+        }
 
         function delete()
         {
