@@ -118,6 +118,26 @@
             }
         }
 
+        static function isDuplicateBrandName($search_brand_name)
+        {
+            $returned_brands = $GLOBALS['DB']->prepare("SELECT * FROM brands WHERE brand_name = :brand_name");
+            $returned_brands->bindParam(':brand_name', $search_brand_name, PDO::PARAM_STR);
+            $returned_brands->execute();
+            foreach ($returned_brands as $brand) {
+                $brand_name = $brand['brand_name'];
+                $brand_price = $brand['price'];
+                $brand_id = $brand['id'];
+                if ($brand_name == $search_brand_name) {
+                    $returned_brand = new Brand($brand_name, $brand_price, $brand_id);
+                }
+            }
+            if (!(empty($returned_brand))){
+                return true;
+            } else {
+                return false;
+            }
+        }
+
     //     function addStore($store)
     //     {
     //         $executed = $GLOBALS['DB']->exec("INSERT INTO stores_brands (brand_id, store_id) VALUES ({$this->getID()}, {$store->getID()});");
