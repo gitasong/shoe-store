@@ -26,10 +26,16 @@
         return $app['twig']->render('stores.html.twig', array('all_stores' => Store::getAll()));
     });
 
-    $app->post("/stores", function() use ($app) {
+    $app->post("/add_store", function() use ($app) {
         $store_name = $_POST['store_name'];
         $new_store = new Store($store_name);
         $new_store->save();
+        return $app['twig']->render('stores.html.twig', array('all_stores' => Store::getAll()));
+    });
+
+    $app->delete("/delete_store/{id}", function($id) use ($app) {
+        $store = Store::find($id);
+        $store->delete();
         return $app['twig']->render('stores.html.twig', array('all_stores' => Store::getAll()));
     });
 
