@@ -138,41 +138,44 @@
             $this->assertEquals([$test_store_2], Store::getAll());
         }
 
-        // function testAddBrand()
-        // {
-        //     $brand_name = "Adidas";
-        //     $test_brand = new Brand($brand_name);
-        //     $test_brand->save();
-        //
-        //     $store_name = "Top Shoes";
-        //     $test_store = new Store($store_name);
-        //     $test_store->save();
-        //
-        //     $test_store->addBrand($test_brand);
-        //
-        //     $this->assertEquals($test_store->getBrands(), [$test_brand]);
-        // }
-        //
-        // function testGetBrands()
-        // {
-        //     $brand_name = "Adidas";
-        //     $test_brand = new Brand($brand_name);
-        //     $test_brand->save();
-        //
-        //     $$brand_name = "Nike";
-        //     $test_brand_2 = new Brand($brand_name);
-        //     $test_brand_2->save();
-        //
-        //     $store_name = "Top Shoes";
-        //     $test_store = new Store($store_name);
-        //     $test_store->save();
-        //
-        //     $test_store->addBrand($test_brand);
-        //     $test_store->addBrand($test_brand_2);
-        //
-        //     $this->assertEquals($test_store->getBrands(), [$test_brand, $test_brand_2]);
-        // }
-        //
+        function testAddBrand()
+        {
+            $brand_name = "Adidas";
+            $price = 69.99;
+            $test_brand = new Brand($brand_name, $price);
+            $test_brand->save();
+
+            $store_name = "Top Shoes";
+            $test_store = new Store($store_name);
+            $test_store->save();
+
+            $test_store->addBrand($test_brand);
+
+            $this->assertEquals($test_store->getBrands(), [$test_brand]);
+        }
+
+        function testGetBrands()
+        {
+            $brand_name_1 = "Adidas";
+            $price_1 = 69.99;
+            $test_brand_1 = new Brand($brand_name_1, $price_1);
+            $test_brand_1->save();
+
+            $brand_name_2 = "Nike";
+            $price_2 = 79.99;
+            $test_brand_2 = new Brand($brand_name_2, $price_2);
+            $test_brand_2->save();
+
+            $store_name = "Top Shoes";
+            $test_store = new Store($store_name);
+            $test_store->save();
+
+            $test_store->addBrand($test_brand_1);
+            $test_store->addBrand($test_brand_2);
+
+            $this->assertEquals($test_store->getBrands(), [$test_brand_1, $test_brand_2]);
+        }
+
         function testFindStoreByName()
         {
             $store_name_1 = "Macys";
