@@ -92,30 +92,34 @@
             }
         }
 
-        // function addBrand($brand)
-        // {
-        //     $executed = $GLOBALS['DB']->exec("INSERT INTO brands_stores (store_id, brand_id) VALUES ({$this->getID()}, {$brand->getID()});");
-        //     if ($executed) {
-        //         return true;
-        //     } else {
-        //         return false;
-        //     }
-        // }
-        //
-        // function getBrands()
-        // {
-        //     $returned_brands = $GLOBALS['DB']->query("SELECT brands.* FROM stores JOIN brands_stores ON (brands_stores.store_id = store_id) JOIN brands ON (brands.id = brands_stores.brand_id) WHERE stores.id = {$this->getID()};");
-        //     $brands = array();
-        //     foreach($returned_brands as $brand) {
-        //         $brand_name = $brand['brand_name'];
-        //         $brand_price = $brand['price'];
-        //         $brand_id = $brand['id'];
-        //         $new_brand = new Brand($brand_name, $brand_id);
-        //         array_push($brands, $new_brand);
-        //     }
-        //     return $brands;
-        // }
-        //
+        function addBrand($brand)
+        {
+            $executed = $GLOBALS['DB']->exec("INSERT INTO brands_stores (store_id, brand_id) VALUES ({$this->getID()}, {$brand->getID()});");
+            var_dump($this->getID());
+            var_dump($brand->getID());
+            if ($executed) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function getBrands()
+        {
+            $returned_brands = $GLOBALS['DB']->query("SELECT brands.* FROM stores JOIN brands_stores ON (brands_stores.store_id = stores.id) JOIN brands ON (brands.id = brands_stores.brand_id) WHERE stores.id = {$this->getID()};");
+            $brands = array();
+            var_dump($brands);
+            foreach($returned_brands as $brand) {
+                $brand_name = $brand['brand_name'];
+                $brand_price = number_format($brand['price'], 2);
+                $brand_id = $brand['id'];
+                $new_brand = new Brand($brand_name, $brand_price, $brand_id);
+                array_push($brands, $new_brand);
+            }
+            var_dump($brands);
+            return $brands;
+        }
+
         static function findStoreByName($search_store_name)
         {
             $returned_stores = $GLOBALS['DB']->prepare("SELECT * FROM stores WHERE store_name = :store_name");
