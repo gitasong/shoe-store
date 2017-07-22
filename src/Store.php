@@ -131,5 +131,24 @@
             return $returned_store;
         }
 
+        static function isDuplicateStoreName($search_store_name)
+        {
+            $returned_stores = $GLOBALS['DB']->prepare("SELECT * FROM stores WHERE store_name = :store_name");
+            $returned_stores->bindParam(':store_name', $search_store_name, PDO::PARAM_STR);
+            $returned_stores->execute();
+            foreach ($returned_stores as $store) {
+                $store_name = $store['store_name'];
+                $store_id = $store['id'];
+                if ($store_name == $search_store_name) {
+                    $returned_store = new Store($store_name, $store_id);
+                }
+            }
+            if (!(empty($returned_store))){
+                return true;
+            } else {
+                return false;
+            }
+        }
+
     }
 ?>
