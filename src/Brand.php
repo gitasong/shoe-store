@@ -30,10 +30,10 @@
             return $this->price;
         }
 
-        // function setPrice($new_price)
-        // {
-        //     $this->price = (float) $new_price;
-        // }
+        function setPrice($new_price)
+        {
+            $this->price = (float) $new_price;
+        }
 
         function save()
         {

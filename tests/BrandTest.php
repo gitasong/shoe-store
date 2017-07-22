@@ -58,18 +58,18 @@
             $this->assertEquals($price, $result);
         }
 
-        // function testSetPrice()
-        // {
-        //     $brand_name = "Adidas";
-        //     $price = "69.99";
-        //     $test_brand = new Brand($brand_name, $price);
-        //     $new_price = "59.99";
-        //
-        //     $test_brand->setPrice($new_price);
-        //     $result = $test_brand->getPrice();
-        //
-        //     $this->assertEquals($new_price, $result);
-        // }
+        function testSetPrice()
+        {
+            $brand_name = "Adidas";
+            $price = "69.99";
+            $test_brand = new Brand($brand_name, $price);
+            $new_price = "59.99";
+
+            $test_brand->setPrice($new_price);
+            $result = $test_brand->getPrice();
+        
+            $this->assertEquals($new_price, $result);
+        }
 
         function testSave()
         {
@@ -165,7 +165,7 @@
         //     $price = "49.99";
         //     $test_brand = new Brand($brand_name, $price);
         //     $test_brand->save();
-        //     $new_$price = "59.99";
+        //     $new_price = "59.99";
         //
         //     $test_brand->updatePrice($new_price);
         //
