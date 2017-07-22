@@ -5,11 +5,13 @@
     {
 
         private $brand_name;
+        private $price;
         private $id;
 
-        function __construct($brand_name, $id = null)
+        function __construct($brand_name, $price, $id = null)
         {
             $this->brand_name = $brand_name;
+            $this->price = $price;
             $this->id = $id;
         }
 
@@ -23,9 +25,19 @@
             $this->brand_name = (string) $new_brand_name;
         }
 
+        function getPrice()
+        {
+            return $this->price;
+        }
+
+        function setPrice($new_price)
+        {
+            $this->price = (float) $new_price;
+        }
+
         function save()
         {
-            $executed = $GLOBALS['DB']->exec("INSERT INTO brands (brand_name) VALUES ('{$this->getBrandName()}')");
+            $executed = $GLOBALS['DB']->exec("INSERT INTO brands (brand_name, price) VALUES ('{$this->getBrandName()}', '{$this->getPrice()}')");
             if ($executed) {
                 $this->id = $GLOBALS['DB']->lastInsertID();
                 return true;
@@ -45,8 +57,9 @@
             $brands = array();
             foreach($returned_brands as $brand) {
                 $brand_name = $brand['brand_name'];
+                $brand_price = $brand['price'];
                 $brand_id = $brand['id'];
-                $new_brand = new Brand($brand_name, $brand_id);
+                $new_brand = new Brand($brand_name, $brand_price, $brand_id);
                 array_push($brands, $new_brand);
             }
             return $brands;
@@ -64,9 +77,10 @@
             $returned_brands->execute();
             foreach ($returned_brands as $brand) {
                 $brand_name = $brand['brand_name'];
+                $brand_price = $brand['price'];
                 $brand_id = $brand['id'];
                 if ($brand_id == $search_id) {
-                    $returned_brand = new Brand($brand_name, $brand_id);
+                    $returned_brand = new Brand($brand_name, $brand_price, $brand_id);
                 }
             }
             return $returned_brand;
