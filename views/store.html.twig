@@ -10,9 +10,9 @@
 
             <h2>{{ store.getStoreName }}</h2>
             {% if store_brands is not empty %}
-            <h4>Brands Carried By This Store:</h4>
+            <h3>Brands Carried By This Store:</h3>
                 {% for brand in store_brands %}
-                    <p>{{ brand.getBrandName }}</p>
+                    <h4>{{ brand.getBrandName }} - Price Point: {{ brand.getPrice }}</h4>
                 {% endfor %}
             {% endif %}
 
