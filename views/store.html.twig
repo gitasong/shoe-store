@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+        <store_name>Famous Shoe Distribution | {{ store.getStoreName }}</store_name>
+    </head>
+    <body>
+        <div class="container-fluid">
+
+            <h1>Famous Shoe Distribution | {{ store.getStoreName }}</h1>
+
+            <h2>Edit Store</h2>
+            <form action="/edit_store/{{ store.getID }}" name="edit_store" method="post">
+                <input name="_method" type="hidden" value="patch">
+
+                <label for="store_name">New Store Name: </label>
+                <input type="store_name" name="store_name" type="text" required>
+
+                <button type="submit" name="button">Update Store</button>
+            </form>
+
+            <form action="/delete_store/{{ store.getID }}" method="post">
+                <input name="_method" type="hidden" value="delete">
+
+                <button type="submit">Delete Store</button>
+            </form>
+
+            <h4><a href="/">Home</a></h4>
+        </div>
+    </body>
+</html>
