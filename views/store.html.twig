@@ -8,6 +8,14 @@
 
             <h1>Famous Shoe Distribution | {{ store.getStoreName }}</h1>
 
+            <h2>{{ store.getStoreName }}</h2>
+            {% if store_brands is not empty %}
+            <h4>Brands Carried By This Store:</h4>
+                {% for brand in store_brands %}
+                    <p>{{ brand.getBrandName }}</p>
+                {% endfor %}
+            {% endif %}
+
             <h2>Edit Store</h2>
             <form action="/edit_store/{{ store.getID }}" name="edit_store" method="post">
                 <input name="_method" type="hidden" value="patch">
@@ -24,7 +32,7 @@
                 <label for="all_brands">Add A Brand: </label>
                 <select name="all_brands">
                     {% for brand in all_brands %}
-                        <option value="{{ brand.getID }}">{{ brand.getTitle }}</option>
+                        <option value="{{ brand.getID }}">{{ brand.getBrandName }}</option>
                     {% endfor %}
                 </select>
                 <button type="submit" name="button">Add Brand</button>
