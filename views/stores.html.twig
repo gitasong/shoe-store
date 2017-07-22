@@ -15,12 +15,12 @@
                         <li>
                             <h4><a href="/store/{{ store.getID }}">{{ store.getStoreName }}</a>  ID: {{ store.getID }}</h4>
                             <span>
-                                <form action="/stores/{{ store.getID }}/edit" method="post">
+                                <form action="/edit_store/{{ store.getID }}/edit" method="post">
                                     <button type="submit">Edit Store</button>
                                 </form>
                             </span>
                             <span>
-                                <form action="/stores/{{ store.getID }}" method="post">
+                                <form action="/delete_store/{{ store.getID }}" method="post">
                                     <input name="_method" type="hidden" value="delete">
 
                                     <button type="submit">Delete Store</button>
@@ -32,7 +32,7 @@
             {% endif %}
 
             <h2>Add A Store</h2>
-            <form action='/stores' method='post'>
+            <form action='/add_store' method='post'>
                 <label for='store_name'>Store Name: </label>
                 <input id='store_name' name='store_name' type='text' required>
 
