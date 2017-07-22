@@ -12,7 +12,7 @@
             {% if store_brands is not empty %}
             <h3>Brands Carried By This Store:</h3>
                 {% for brand in store_brands %}
-                    <h4>{{ brand.getBrandName }} - Price Point: {{ brand.getPrice }}</h4>
+                    <h5>{{ brand.getBrandName }} - Price Point: {{ brand.getPrice }}</h5>
                 {% endfor %}
             {% endif %}
 
