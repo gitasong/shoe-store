@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+        <link rel="stylesheet" href="/css/styles.css" type="text/css">
+        <title>Famous Shoe Distribution | {{ brand.getBrandName }}</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+
+            <h1>Famous Shoe Distribution | {{ brand.getBrandName }}</h1>
+
+            <h2>{{ brand.getBrandName }}</h2>
+            {% if brand_stores is not empty %}
+            <h3>Stores That Carry This Brand:</h3>
+                {% for store in brand_stores %}
+                    <h5><a href="/store/{{ store.getID }}">{{ store.getStoreName }}</a></h5>
+                {% endfor %}
+            {% endif %}
+
+            <form action="/delete_brand/{{ brand.getID }}" method="post">
+                <input name="_method" type="hidden" value="delete">
+
+                <button type="submit">Delete Brand</button>
+            </form>
+
+            <h4><a href="/">Home</a> | <a href="/brands">View Brands</a></h4>
+        </div>
+    </body>
+</html>
