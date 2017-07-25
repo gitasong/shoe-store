@@ -206,5 +206,26 @@
             $this->assertEquals(true, $result);
         }
 
+        function testGetStores()
+        {
+            $store_name_1 = "Macys";
+            $test_store_1 = new Store($store_name_1);
+            $test_store_1->save();
+
+            $store_name_2 = "Nordstrom";
+            $test_store_2 = new Store($store_name_2);
+            $test_store_2->save();
+
+            $brand_name = "Nine West";
+            $price = number_format(99.95);
+            $test_brand = new Brand($brand_name, $price);
+            $test_brand->save();
+
+            $test_brand->addStore($test_store_1);
+            $test_brand->addStore($test_store_2);
+
+            $this->assertEquals($test_brand->getStores(), [$test_store_1, $test_store_2]);
+        }
+
     }
 ?>

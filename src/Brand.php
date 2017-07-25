@@ -138,29 +138,29 @@
             }
         }
 
-    //     function addStore($store)
-    //     {
-    //         $executed = $GLOBALS['DB']->exec("INSERT INTO stores_brands (brand_id, store_id) VALUES ({$this->getID()}, {$store->getID()});");
-    //         if ($executed) {
-    //             return true;
-    //         } else {
-    //             return false;
-    //         }
-    //     }
-    //
-    //     function getStores()
-    //     {
-    //         $returned_stores = $GLOBALS['DB']->query("SELECT stores.* FROM brands JOIN stores_brands ON (stores_brands.brand_id = brands.id) JOIN stores ON (stores.id = stores_brands.store_id) WHERE brands.id = {$this->getID()};");
-    //         $stores = array();
-    //         foreach($returned_stores as $store) {
-    //             $store_name = $store['store_name'];
-    //             $store_id = $store['id'];
-    //             $new_store = new Store($store_name, $store_id);
-    //             array_push($stores, $new_store);
-    //         }
-    //         return $stores;
-    //     }
-    //
+        function addStore($store)
+        {
+            $executed = $GLOBALS['DB']->exec("INSERT INTO brands_stores (brand_id, store_id) VALUES ({$this->getID()}, {$store->getID()});");
+            if ($executed) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function getStores()
+        {
+            $returned_stores = $GLOBALS['DB']->query("SELECT stores.* FROM brands JOIN brands_stores ON (brands_stores.brand_id = brands.id) JOIN stores ON (stores.id = brands_stores.store_id) WHERE brands.id = {$this->getID()};");
+            $stores = array();
+            foreach($returned_stores as $store) {
+                $store_name = $store['store_name'];
+                $store_id = $store['id'];
+                $new_store = new Store($store_name, $store_id);
+                array_push($stores, $new_store);
+            }
+            return $stores;
+        }
+
     //     static function findBrandByBrandName($search_brand_name)
     //     {
     //         $returned_brands = $GLOBALS['DB']->prepare("SELECT * FROM brands WHERE brand_name = :brand_name");
