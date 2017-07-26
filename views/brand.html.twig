@@ -13,7 +13,7 @@
             {% if brand_stores is not empty %}
             <h3>Stores That Carry This Brand:</h3>
                 {% for store in brand_stores %}
-                    <h5><a href="/store/{{ store.getID }}">{{ store.getStoreName }}</a></h5>
+                    <h5><a href="/store/{{ store.getID }}">{{ store.getStoreName }} - ID: {{ store.getID }}</a></h5>
                 {% endfor %}
             {% endif %}
 
