@@ -110,7 +110,9 @@
 
         function delete()
         {
-            $executed = $GLOBALS['DB']->exec("DELETE FROM brands WHERE id = {$this->getID()};");
+            $part_1 = $GLOBALS['DB']->exec("DELETE FROM brands WHERE id = {$this->getID()};");
+            $part_2 = $GLOBALS['DB']->exec("DELETE FROM brands_stores WHERE brand_id = {$this->getID()};");
+            $executed = $part_1 && $part_2;
             if ($executed) {
                 return true;
             } else {
