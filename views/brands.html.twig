@@ -14,7 +14,7 @@
                 <ul>
                     {% for brand in all_brands %}
                         <li>
-                            <h4>{{ brand.getBrandName }} ID: {{ brand.getID }} Price Point: ${{ brand.getPrice }}</h4>
+                            <h4><a href="/brand/{{ brand.getID }}">{{ brand.getBrandName }}</a> ID: {{ brand.getID }} Price Point: ${{ brand.getPrice }}</h4>
                             <span>
                                 <form action="/delete_brand/{{ brand.getID }}" method="post">
                                     <input name="_method" type="hidden" value="delete">
